@@ -28,26 +28,26 @@ const WidgetPage: React.FC = () => {
     const priorityLevels = parseQueryParam(searchParams.get("priorityLevels"));
     const hideCompleted = parseQueryParam(searchParams.get("hideCompleted"))
 
-    const fetchUserTasks = async (userId: string | null) => {
-      try {
-        setError(null);
-
-        if (!userId) {
-          setError("Missing User ID");
-          return;
-        }
-
-        const response = await axios.get(`${API_BASE_URL}/api/v1/vbusy/tasks/${userId}`);
-        const data = await response.data;
-        const filteredData = data.filter((item: Task) => !item.archived);
-
-        setUserData(filteredData);
-      } catch (error) {
-        setError("Invalid User ID");
-      }
-    }
-
     useEffect(() => {
+      const fetchUserTasks = async (userId: string | null) => {
+        try {
+          setError(null);
+  
+          if (!userId) {
+            setError("Missing User ID");
+            return;
+          }
+  
+          const response = await axios.get(`${API_BASE_URL}/api/v1/vbusy/tasks/${userId}`);
+          const data = await response.data;
+          const filteredData = data.filter((item: Task) => !item.archived);
+  
+          setUserData(filteredData);
+        } catch (error) {
+          setError("Invalid User ID");
+        }
+      }
+
       fetchUserTasks(userId);
     }, [userId]);
 
