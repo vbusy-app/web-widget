@@ -1,0 +1,84 @@
+@import "partials/variables";
+
+::-webkit-scrollbar {
+  width: 13px;
+  height: 100%;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $bg;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $accent;
+  border: 3px solid $bg;
+  border-radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: auto;
+  font-family: Intern system-ui, sans-serif;
+  scroll-behavior: smooth;
+  background-color: $bg-alt;
+}
+
+body {
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.3px;
+  font-size: 15px;
+
+  background-color: $bg;
+  color: $text;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  section {
+    margin: 1em min(10%, 20%, 20%);
+
+    @media screen and (max-width: 600px) {
+      margin: 1em min(5%, 20%, 20%);
+    }
+  }
+
+  footer {
+    margin: 1em min(10%, 20%, 20%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .icons {
+      display: flex;
+      gap: 10px;
+  
+      a {
+        color: $text-light;
+        transition: $transition;
+  
+        &:hover {
+          color: $accent;
+        }
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      margin: 1em min(5%, 20%, 20%);
+    }
+  }
+}

@@ -1,0 +1,116 @@
+@import "../partials/variables";
+
+.main {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  .heading {
+    font-size: clamp(30px, 3vw, 45px);
+  }
+
+  .settings {
+    .settingsHeading {
+      font-size: clamp(25px, 2vw, 45px);
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+
+      .inputTextLabel {
+        padding-bottom: 6px;
+        font-weight: 600;
+      }
+
+      .checkbox {
+        display: flex;
+        gap: 10px;
+
+        input {
+          cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+          outline: none;
+        }
+
+        input[type="checkbox"]:checked {
+          accent-color: $accent;
+        }
+      }
+
+      input[type="range"] {
+        cursor: pointer;
+        outline: none;
+        accent-color: $accent;
+        padding: 0;
+        margin: 0;
+
+        &:focus,
+        &:active {
+          outline: none !important;
+        }
+      }
+
+      input {
+        border: none;
+        padding: 8px;
+        border-radius: $radius;
+        background-color: $bg-alt;
+        caret-color: $text-trans;
+        color: $text-trans;
+
+        &:focus,
+        &:active {
+          outline-color: $text;
+          outline-style: solid;
+          outline-width: 1px;
+        }
+      }
+
+      @media (max-width: 876px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (max-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  .preview {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    .previewHeading {
+      font-size: clamp(25px, 2vw, 45px);
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: none;
+      background: $bg-dark;
+      color: $text;
+      border-radius: $radius;
+      padding: 0.6rem 0.8rem;
+      cursor: pointer;
+      transition: $transition;
+      margin-top: 1.4rem;
+
+      .copyBtnIcon {
+        font-size: 15px;
+      }
+
+      &:hover {
+        background: $bg-dark-alt;
+      }
+    }
+  }
+}
