@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = ({ inputValues, handleInputChange, inputConf
                   checked={inputValues[config.state]}
                   onChange={(e) => handleInputChange(e, config.state)}
                 />
-                <div>
+                <div className={styles.label}>
                   {config.label}
                 </div>
               </div>
